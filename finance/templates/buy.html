@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Stocks</title>
+</head>
+<body>
+    <h1>Buy Stocks</h1>
+    <form action="/buy" method="post">
+        <input type="text" name="symbol" placeholder="Enter stock symbol" required>
+        <input type="number" name="shares" placeholder="Number of shares" min="1" required>
+        <button type="submit">Buy</button>
+    </form>
+    {% if stock %}
+    <p>Purchased {{ stock["symbol"] }} at {{ stock["price"] | usd }}</p>
+{% endif %}
+</body>
+</html>
