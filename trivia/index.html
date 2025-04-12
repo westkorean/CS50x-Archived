@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+                    document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.answer').forEach(button => {
+                    button.addEventListener('click', function() {
+                        if (this.getAttribute('data-correct') === 'true') {
+                            this.style.backgroundColor = 'green';
+                            document.getElementById('feedback1').textContent = 'Correct!';
+                        } else {
+                            this.style.backgroundColor = 'red';
+                            document.getElementById('feedback1').textContent = 'Incorrect';
+                        }
+                    });
+                });
+
+                document.getElementById('submit').addEventListener('click', function() {
+                    let response = document.getElementById('response').value.trim();
+                    if (response === '8') {
+                        document.getElementById('response').style.backgroundColor = 'green';
+                        document.getElementById('feedback2').textContent = 'Correct!';
+                    } else {
+                        document.getElementById('response').style.backgroundColor = 'red';
+                        document.getElementById('feedback2').textContent = 'Incorrect';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr></hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the capital of France?</h3>
+                <button class="answer" data-correct="false">Berlin</button>
+                <button class="answer" data-correct="false">Madrid</button>
+                <button class="answer" data-correct="true">Paris</button>
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is 5 + 3?</h3>
+                <input type="text" id="response">
+                <button id="submit">Submit</button>
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>
